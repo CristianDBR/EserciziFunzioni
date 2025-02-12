@@ -21,7 +21,8 @@ public class Rigori {
 
         for (int i = 0; i < 5; i++) {
             tiriSquadra1++;
-            if (simulaTiro(scanner, random, squadra1)) {
+            boolean squadra1Segna = simulaTiro(scanner, random, squadra1);
+            if (squadra1Segna) {
                 goalSquadra1++;
                 System.out.println(ANSI_GREEN + squadra1 + " ha segnato! Goal: " + goalSquadra1 + ANSI_RESET);
             } else {
@@ -29,19 +30,23 @@ public class Rigori {
             }
 
             tiriSquadra2++;
-            if (simulaTiro(scanner, random, squadra2)) {
+            boolean squadra2Segna = simulaTiro(scanner, random, squadra2);
+            if (squadra2Segna) {
                 goalSquadra2++;
                 System.out.println(ANSI_GREEN + squadra2 + " ha segnato! Goal: " + goalSquadra2 + ANSI_RESET);
             } else {
                 System.out.println(ANSI_RED + squadra2 + " ha sbagliato!" + ANSI_RESET);
             }
+
+            System.out.println("Risultato momentaneo [" + goalSquadra1 + " - " + goalSquadra2 + "]");
 
             if (i == 4 && goalSquadra1 != goalSquadra2) break;
         }
 
         while (goalSquadra1 == goalSquadra2) {
             tiriSquadra1++;
-            if (simulaTiro(scanner, random, squadra1)) {
+            boolean squadra1Segna = simulaTiro(scanner, random, squadra1);
+            if (squadra1Segna) {
                 goalSquadra1++;
                 System.out.println(ANSI_GREEN + squadra1 + " ha segnato! Goal: " + goalSquadra1 + ANSI_RESET);
             } else {
@@ -49,12 +54,15 @@ public class Rigori {
             }
 
             tiriSquadra2++;
-            if (simulaTiro(scanner, random, squadra2)) {
+            boolean squadra2Segna = simulaTiro(scanner, random, squadra2);
+            if (squadra2Segna) {
                 goalSquadra2++;
                 System.out.println(ANSI_GREEN + squadra2 + " ha segnato! Goal: " + goalSquadra2 + ANSI_RESET);
             } else {
                 System.out.println(ANSI_RED + squadra2 + " ha sbagliato!" + ANSI_RESET);
             }
+
+            System.out.println("Risultato momentaneo [" + goalSquadra1 + " - " + goalSquadra2 + "]");
         }
 
         String vincitore = goalSquadra1 > goalSquadra2 ? squadra1 : squadra2;
